@@ -1,0 +1,55 @@
+:root{
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --muted: #6c7a89;
+  --accent: #22c55e;
+  --radius: 14px;
+  --shadow-1: 0 8px 24px rgba(19,22,28,0.06);
+  --shadow-2: 0 18px 40px rgba(8,15,31,0.12);
+  --transition: 220ms cubic-bezier(.2,.9,.2,1);
+}
+
+body{
+  margin:0;
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color:#071426;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+  transition: background var(--transition);
+}
+body.dark{--bg:#071226; color:#e6eef6;}
+
+.site-header{padding:22px 18px;}
+.header-inner{max-width:1100px; margin:0 auto;}
+.brand-row{display:flex; justify-content:space-between; align-items:center;}
+.brand{font-size:1.9rem;}
+.search-row{display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px;}
+.search{display:flex; align-items:center; gap:8px; background:var(--card); padding:8px 12px; border-radius:999px; min-width:260px;}
+.search input{border:0;background:transparent;padding:8px;min-width:160px;color:inherit;}
+.tabs{display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;}
+.tab{padding:8px 12px; border-radius:999px; cursor:pointer; border:1px solid transparent; color:var(--muted);}
+.tab.active{background:linear-gradient(90deg,#ecfdf5,#f0fdf4); color:#06201a;}
+
+.main{flex:1;padding:28px 18px;}
+.container{max-width:1100px;margin:0 auto;}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:18px;}
+
+.card{display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;padding:18px;background:var(--card);border-radius:var(--radius);color:inherit;position:relative;overflow:hidden;min-height:120px;transition: transform var(--transition), box-shadow var(--transition), background var(--transition);}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:var(--shadow-2);}
+.card .icon-wrap{width:56px;height:56px; display:flex; align-items:center; justify-content:center; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.85), rgba(240,255,240,0.95));}
+.card .title{font-weight:700;}
+.card .meta{color:var(--muted); font-size:0.9rem;}
+.new-badge{position:absolute; left:12px; top:12px; background:var(--accent); color:white; padding:6px 8px; border-radius:999px; font-size:0.8rem; font-weight:700;}
+
+.card::after{
+  content:"Apply Now";
+  position:absolute; inset:0;
+  background: rgba(0,0,0,0.5);
+  color:white; display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-size:1.1rem; opacity:0; border-radius:var(--radius); pointer-events:none; transition: opacity 0.25s ease;
+}
+.card:hover::after{opacity:1;}
+
+.site-footer{padding:18px;text-align:center;color:var(--muted);font-size:0.9rem;}
